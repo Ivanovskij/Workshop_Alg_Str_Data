@@ -43,6 +43,11 @@ class QueueArr {
     public long peekFront() {                   // просмотр первого эл-та без удаления
         return arr[front];
     }
+    
+    //--------------------------------------------------------
+    public long peekFrontN(int n) {                   // просмотр эл-та по индексу
+        return arr[n];
+    }
 
     //--------------------------------------------------------
     public long remove() {                      // просмотр с циклическим удалением
@@ -68,6 +73,29 @@ class QueueArr {
     public int size() {
         return nItems;
     }
+    
+    
+    //--------------------------------------------------------
+    /*
+        4.1. Напишите метод класса Queue программы q�e�e.java (см. листинг 4.4) для
+            вывода содержимого очереди. Учтите, что задача не сводится к простому выводу со-
+            держимого базового массива. Содержимое очереди должно выводиться от первого
+            вставленного элемента до последнего, а пользователь не должен видеть, что после-
+            довательность прерывается на границе массива. Будьте внимательны и проследите
+            за тем, чтобы один элемент и содержимое пустой очереди выводились корректно
+            независимо от положения front и rear 
+    */
+    public void display() {
+        // запоминаем позицию головы и двигаемся от нее
+        // таким образом мы не будем зависеть от front и rear
+        // и будем всегда выводить, то что находится в очереди
+        int tmpFront = front;                       
+        for (int i = 0; i < size(); i++) {
+            System.out.print( peekFrontN(tmpFront++) );
+            System.out.print(" ");
+        }
+        System.out.println();
+    }
 }
 
 /**
@@ -85,26 +113,34 @@ class QueueArrayApp {
         int maxSize = 5;
         QueueArr qa = new QueueArr(maxSize);
 
-        qa.insert(10);          // Вставка 4 элементов
-        qa.insert(20);
-        qa.insert(30);
-        qa.insert(40);
+        qa.insert(0);         
+        qa.insert(1);         
+        qa.insert(2);
+        qa.insert(3);
+        qa.insert(4);
         
-        qa.remove();            // Извлечение 3 элементов
-        qa.remove();            // (10, 20, 30)
+        qa.remove();            
+        qa.remove();            
+        qa.remove();            
+        qa.remove();            
+        qa.remove();            
+//        qa.remove();
+        
+       // возможен циклический перенос
+        qa.insert(50);          
+        qa.insert(60);
         qa.remove();
+//        qa.insert(70);
+//        qa.insert(80);
         
-        qa.insert(50);          // Вставка еще 4 элементов
-        qa.insert(60);          // (с циклическим переносом)
-        qa.insert(70);
-        qa.insert(80);
+        qa.display();
         
-        while (!qa.isEmpty())   // Извлечение и вывод всех элементов
-        { 
-            long elem = qa.remove();       // (40, 50, 60, 70, 80)
-            System.out.print(elem);
-            System.out.print(" ");
-        }
-        System.out.println("");
+//        while (!qa.isEmpty())   // Извлечение и вывод всех элементов
+//        { 
+//            long elem = qa.remove();       // (40, 50, 60, 70, 80)
+//            System.out.print(elem);
+//            System.out.print(" ");
+//        }
+//        System.out.println("");
     }
 }

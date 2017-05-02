@@ -83,13 +83,7 @@ class BracketChecker {
                 {
                     if (!stack.isEmpty()) {                 // если стэк не пуст
                         char pop = stack.pop();             // берем открывающую скобку
-                        if (                                // проверяем на ошибки пропущенных скобок
-                                (ch == '}' && pop != '{') 
-                                ||
-                                (ch == ']' && pop != '[')
-                                ||
-                                (ch == ')' && pop != '(')
-                            ) {
+                        if (isntGotParen(ch, pop)) {
                             // выводим что пропущено и на какой позиции
                             System.out.println("Invalid argument: " + ch + " at " + i); 
                         }
@@ -107,6 +101,15 @@ class BracketChecker {
         if (!stack.isEmpty()) {
             System.out.println("Error: missing right delimeter");
         }
+    }
+
+    private static boolean isntGotParen(char ch, char pop) {
+        return // проверяем на ошибки пропущенных скобок
+                (ch == '}' && pop != '{')
+                ||
+                (ch == ']' && pop != '[')
+                ||
+                (ch == ')' && pop != '(');
     }
 }
 

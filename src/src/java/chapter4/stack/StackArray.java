@@ -13,11 +13,11 @@ package src.java.chapter4.stack;
 class StackArr {
     
     private final long[] arr;
-    private final int nElems;
+    private final int nItems;
     private int top;
 
     public StackArr(int maxSize) {
-        nElems = maxSize;
+        nItems = maxSize;
         arr = new long[maxSize];
         top = -1;                           // нет ни одного эл-та
     }
@@ -50,7 +50,7 @@ class StackArr {
     
     //--------------------------------------------------------
     public boolean isFull() {                   // если голова равна макс кол-ву эл-тов
-        return (top == nElems-1);
+        return (top == nItems-1);
     }
 }
 
