@@ -81,6 +81,8 @@ class QueueCashBox {
         для работы со временем.)
  * @author IOAdmin
  */
+// ЗДЕСЬ КОСТЫЛИ В СВОЕМ РОДЕ
+// ИБО БЫЛО ЛЕНЬ ЭТО ПИСАТЬ
 class CashBoxApp {
     public static void main(String[] args) throws IOException {
         int size = 5;
