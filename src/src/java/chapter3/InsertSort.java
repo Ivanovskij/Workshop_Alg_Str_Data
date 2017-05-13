@@ -6,6 +6,7 @@
 package src.java.chapter3;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 /**
@@ -287,7 +288,7 @@ class InsertArr {
 class InsertSortApp {
 
     public static void main(String[] args) {
-        int maxElem = 80000;
+        int maxElem = 50000;
 //        int maxElem = 8;
         InsertArr insertArr = new InsertArr(maxElem);
         
@@ -302,8 +303,8 @@ class InsertSortApp {
         
         insertArr.display();
 
-        for (int i = 80000; i > 0; i--) {
-            long r = (new Random().nextInt() / 100000000 + 340);
+        for (int i = maxElem; i > 0; i--) {
+            long r = ThreadLocalRandom.current().nextLong(10,100);
             insertArr.insert(r);
         }
 

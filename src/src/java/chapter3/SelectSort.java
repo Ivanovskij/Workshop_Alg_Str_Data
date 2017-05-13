@@ -6,6 +6,7 @@
 package src.java.chapter3;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
@@ -83,8 +84,8 @@ class SelectSortApp {
 //        selectArr.insert(42000);
 //        selectArr.display();
 
-        for (int i = 0; i < 50000; i++) {
-            long r = (new Random().nextInt() / 10000000);
+        for (int i = 0; i < maxElem; i++) {
+            long r = ThreadLocalRandom.current().nextLong(10,100);
             selectArr.insert(r);
         }
         
