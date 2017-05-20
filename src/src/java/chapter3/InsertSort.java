@@ -288,7 +288,7 @@ class InsertArr {
 class InsertSortApp {
 
     public static void main(String[] args) {
-        int maxElem = 50000;
+        int maxElem = 150000;
 //        int maxElem = 8;
         InsertArr insertArr = new InsertArr(maxElem);
         

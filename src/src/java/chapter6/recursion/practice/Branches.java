@@ -44,12 +44,14 @@ public class Branches {
     }
     
     public static void makeBranches(int left, int right) {
-        
     }
     
     public static void display() {
         for (int i = 0; i < tree.length; i++) {
-            System.out.print(tree[i]);
+            if (tree[i] != null) {
+                System.out.print(tree[i]);
+            }
+            System.out.print("-");
         }
         System.out.println();
     }

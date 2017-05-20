@@ -94,7 +94,7 @@ class MergeSort {
  */
 class MergeSortApp {
     public static void main(String[] args) {
-        int maxSize = 11;
+        int maxSize = 550000;
         MergeSort obj = new MergeSort(maxSize);
         
         for (int i = 0; i < maxSize; i++) {
